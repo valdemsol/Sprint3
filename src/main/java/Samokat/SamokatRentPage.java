@@ -25,62 +25,67 @@ public class SamokatRentPage {
     private By acceptButton = By.xpath(".//div[@class='Order_Modal__YZ-d3']/div[@class='Order_Buttons__1xGrp']/button[text()='Да']"); // Кнопка "Да" для подтверждения заказа
     private By orderHeader = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ' and text()='Заказ оформлен']"); // Текст о том, что заказ оформлен
 
-    public SamokatRentPage(WebDriver driver){
+    public SamokatRentPage(WebDriver driver) {
         this.driver = driver;
     }
 
     //Заполнение поля с датой
-    public void fillDateField(String date){
+    public void fillDateField(String date) {
         driver.findElement(dateField).sendKeys(date);
         driver.findElement(dateField).sendKeys(Keys.ENTER);
     }
-//Заполнение поля со сроком аренды для первичных данных
-    public void setRentTimeOne(){
+
+    //Заполнение поля со сроком аренды для первичных данных
+    public void setRentTimeOne() {
         driver.findElement(rentTimeField).click();
         driver.findElement(oneDayRent).click();
     }
-//Для вторичных данных
-    public void setRentTimeTwo(){
+
+    //Для вторичных данных
+    public void setRentTimeTwo() {
         driver.findElement(rentTimeField).click();
         driver.findElement(twoDaysRent).click();
     }
-//Ставим черный чекбокс для первичных данных
-    public void setBlackCheckbox(){
+
+    //Ставим черный чекбокс для первичных данных
+    public void setBlackCheckbox() {
         driver.findElement(blackCheckbox).click();
     }
-//Ставим серый чекбокс для вторичных данных
-    public void setGreyCheckbox(){
+
+    //Ставим серый чекбокс для вторичных данных
+    public void setGreyCheckbox() {
         driver.findElement(greyCheckbox).click();
     }
-//Заполняем комментарий
-    public void setCommentField(String comment){
+
+    //Заполняем комментарий
+    public void setCommentField(String comment) {
         driver.findElement(commentField).click();
         driver.findElement(commentField).sendKeys(comment);
     }
 
     //Нажимаем кнопку Заказать
-    public void clickOrderButton(){
+    public void clickOrderButton() {
         driver.findElement(orderButton).click();
     }
 
     //Ждем, когда появится страница подтверждения
-    public void waitForLoadFinalQuestion(){
+    public void waitForLoadFinalQuestion() {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(finalQuestion));
     }
 
     //Подтверждаем заказ
-    public void clickAcceptionButton(){
+    public void clickAcceptionButton() {
         driver.findElement(acceptButton).click();
     }
 
     //Получаем текст со страницы удачного оформления заказа
-    public String textAfterOrder(){
-     return driver.findElement(orderHeader).getText();
+    public String textAfterOrder() {
+        return driver.findElement(orderHeader).getText();
     }
 
     //Заполнение страницы аренды с первичными данными
-    public void firstRentPageFilling(String date, String comment){
+    public void firstRentPageFilling(String date, String comment) {
         fillDateField(date);
         setRentTimeOne();
         setBlackCheckbox();

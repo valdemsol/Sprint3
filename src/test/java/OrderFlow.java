@@ -2,7 +2,9 @@ import Samokat.SamokatMainPage;
 import Samokat.SamokatOrderPage;
 import Samokat.SamokatRentPage;
 import org.hamcrest.MatcherAssert;
+
 import static org.hamcrest.Matchers.containsString;
+
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -10,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -19,8 +22,7 @@ public class OrderFlow {
     private WebDriver driver;
 
     @Test
-
-    public void firstOrder(){ //Тест с первичными данными
+    public void firstOrder() { //Тест с первичными данными
 
         driver = new ChromeDriver(); //Подключаем Хром
 
@@ -62,13 +64,10 @@ public class OrderFlow {
         String finalHeader = objSamRentPage.textAfterOrder();//Получаем текст из заголовка
 
         MatcherAssert.assertThat(finalHeader, containsString(finalHeaderText));//Сравниваем, что текст из заголовка включает в себя значение переменной
-
-        tearDown();
     }
 
     @Test
-
-    public void secondOrder(){ //Тест с вторичными данными
+    public void secondOrder() { //Тест с вторичными данными
 
         driver = new ChromeDriver();
 
@@ -109,20 +108,13 @@ public class OrderFlow {
 
         String finalHeaderText = "Заказ оформлен";
 
-
         String finalHeader = objSamRentPage.textAfterOrder();
 
         MatcherAssert.assertThat(finalHeader, containsString(finalHeaderText));
-
-        tearDown();
     }
-
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
-
-
-
 }

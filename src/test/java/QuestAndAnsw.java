@@ -4,9 +4,8 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import static org.hamcrest.Matchers.*;
-
-
 
 
 public class QuestAndAnsw {
@@ -37,7 +36,7 @@ public class QuestAndAnsw {
 
         driver = new ChromeDriver();
 
-       // driver = new FirefoxDriver();
+        // driver = new FirefoxDriver();
 
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
@@ -58,7 +57,7 @@ public class QuestAndAnsw {
 
         driver = new ChromeDriver();
 
-       // driver = new FirefoxDriver();
+        // driver = new FirefoxDriver();
 
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
@@ -79,8 +78,7 @@ public class QuestAndAnsw {
 
         driver = new ChromeDriver();
 
-       // driver = new FirefoxDriver();
-
+        // driver = new FirefoxDriver();
 
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
@@ -121,7 +119,7 @@ public class QuestAndAnsw {
     @Test
     public void checkSixQuest() {
 
-       driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         //driver = new FirefoxDriver();
 
@@ -142,16 +140,15 @@ public class QuestAndAnsw {
     @Test
     public void checkSevQuest() {
 
-       driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
-       // driver = new FirefoxDriver();
+        // driver = new FirefoxDriver();
 
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         SamokatMainPage objSamMainPage = new SamokatMainPage(driver);
 
         objSamMainPage.scrollAndClickSevenQuest();
-
 
         String sevAnswerTxt = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
 
@@ -181,10 +178,9 @@ public class QuestAndAnsw {
 
         objSamMainPage.tearDown();
     }
-
- @After
+    @After
     public void tearDown() {
         driver.quit();
- }
+    }
 
 }
